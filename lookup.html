@@ -5,12 +5,14 @@
 <button onclick="submitFunction()">Submit</button>
 <button onclick="clearFunction()">Clear</button>
 <br/>
-<textarea id="output" rows="50" cols="50">Results:</textarea>
+<p><b>Results:</b></p>
+<textarea id="output" rows="50" cols="50"></textarea>
 </html>
 
 <script>
 
-namesDict = {
+
+obj = {
   "item": "value"
 }
 
@@ -18,12 +20,12 @@ var outputPara = document.getElementById("output");
 var text_to_submit = document.getElementById("input_field");
 
 function submitFunction() {
-	outputPara.innerHTML = "Results:"
+	outputPara.innerHTML = ""
 	let textField = document.getElementById("input_field").value;
 	if (textField.length > 0) {
-		for (const [key, value] of Object.entries(namesDict)) {
+		for (const [key, value] of Object.entries(obj)) {
 			if (key.toLowerCase().includes(textField.toLowerCase())) { 
-				outputPara.innerHTML += "\n\n" + key + ": " + value
+				outputPara.innerHTML += key + ": " + value+ "\n\n"
 			};
 		
 		};	
@@ -31,7 +33,7 @@ function submitFunction() {
 };
 
 function clearFunction() {
-	outputPara.innerHTML = "Results:"
+	outputPara.innerHTML = ""
 	text_to_submit.value = ""
 };
 
