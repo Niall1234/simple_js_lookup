@@ -20,12 +20,14 @@ var text_to_submit = document.getElementById("input_field");
 function submitFunction() {
 	outputPara.innerHTML = "Results:"
 	let textField = document.getElementById("input_field").value;
-	for (const [key, value] of Object.entries(namesDict)) {
-		if (key.toLowerCase().includes(textField.toLowerCase())) { 
-			outputPara.innerHTML += "\n\n" + key + ": " + value
-		};
+	if (textField.length > 0) {
+		for (const [key, value] of Object.entries(namesDict)) {
+			if (key.toLowerCase().includes(textField.toLowerCase())) { 
+				outputPara.innerHTML += "\n\n" + key + ": " + value
+			};
 		
-	};	
+		};	
+	};
 };
 
 function clearFunction() {
